@@ -1,0 +1,21 @@
+#admin@M365x748850.onmicrosoft.com
+#o3n7zw3OFG
+
+$creds=Get-Credential
+
+Export-O365Configuration -Quit -ComponentsToExtract @("chckSPOSiteGroup") -Path C:\temp\tst124
+
+Measure-Command { Export-O365Configuration -GlobalAdminAccount $creds -Quiet -ComponentsToExtract @("chckSPOSiteGroup") -Path C:\temp\tst124 }
+
+
+New execution #1
+TotalMinutes      : 1.25607865
+TotalSeconds      : 75.364719
+
+New execution #2
+TotalMinutes      : 1.24233048166667
+TotalSeconds      : 74.5398289
+
+New execution #3
+TotalMinutes      : 1.25839025
+TotalSeconds      : 75.503415
