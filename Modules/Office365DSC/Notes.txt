@@ -2,10 +2,11 @@
 #o3n7zw3OFG
 
 $creds=Get-Credential
-
+Import-Module .\Office365DSC.psd1
 Export-O365Configuration -Quit -ComponentsToExtract @("chckSPOSiteGroup") -Path C:\temp\tst124
 
 Measure-Command { Export-O365Configuration -GlobalAdminAccount $creds -Quiet -ComponentsToExtract @("chckSPOSiteGroup") -Path C:\temp\tst124 }
+Measure-Command { Export-O365Configuration -GlobalAdminAccount $creds -Quiet -ComponentsToExtract @("chckTeamsUser") -Path C:\temp\tst124 }
 
 
 New execution #1
@@ -19,3 +20,26 @@ TotalSeconds      : 74.5398289
 New execution #3
 TotalMinutes      : 1.25839025
 TotalSeconds      : 75.503415
+
+
+old execution #1
+TotalMinutes      : 4.51537311666667
+TotalSeconds      : 270.922387
+
+old execution #2
+TotalMinutes      : 4.21023192666667
+TotalSeconds      : 252.6139156
+
+
+
+
+## TeamUser
+
+
+New execution #1
+TotalMinutes      : 1.26035735333333
+TotalSeconds      : 75.6214412
+
+New execution #2
+TotalMinutes      : 1.22490610833333
+TotalSeconds      : 73.4943665
