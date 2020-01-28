@@ -26,7 +26,10 @@ function Get-TargetResource
 
         [Parameter(Mandatory = $true)]
         [System.Management.Automation.PSCredential]
-        $GlobalAdminAccount
+        $GlobalAdminAccount,
+
+        [Parameter()]
+        $RawResourceInputObject
     )
 
     Write-Verbose -Message "Getting SPOSiteGroups for {$Url}"
@@ -46,31 +49,36 @@ function Get-TargetResource
         Ensure             = "Absent"
     }
 
-    Test-MSCloudLogin -CloudCredential $GlobalAdminAccount `
-        -Platform SharePointOnline
 
-    #checking if the site actually exists
-    try
+    if($RawResourceInputObject)
     {
-        $site = Get-SPOSite $Url
+        $siteGroup = $RawResourceInputObject
     }
-    catch
+    else
     {
-        $Message = "The specified site collection doesn't exist."
-        New-Office365DSCLogEntry -Error $_ -Message $Message
-        throw $Message
-        return $nullReturn
-    }
-    try
-    {
-        $siteGroup = Get-SPOSiteGroup -Site $Url -Group $Identity
-    }
-    catch
-    {
-        if ($Error[0].Exception.Message -eq "Group cannot be found.")
+        #checking if the site actually exists
+        try
         {
-            write-verbose -Message "Site group $($Identity) could not be found on site $($Url)"
+            $site = Get-SPOSite $Url
+        }
+        catch
+        {
+            $Message = "The specified site collection doesn't exist."
+            New-Office365DSCLogEntry -Error $_ -Message $Message
+            throw $Message
+            return $nullReturn
+        }
+        try
+        {
+            $siteGroup = Get-SPOSiteGroup -Site $Url -Group $Identity
+        }
+        catch
+        {
+            if ($Error[0].Exception.Message -eq "Group cannot be found.")
+            {
+                write-verbose -Message "Site group $($Identity) could not be found on site $($Url)"
 
+            }
         }
     }
     if ($null -eq $siteGroup)
@@ -323,9 +331,10 @@ function Export-TargetResource
         foreach ($siteGroup in $siteGroups)
         {
             $params = @{
-                Url                = $site.Url
-                Identity           = $siteGroup.Title
-                GlobalAdminAccount = $GlobalAdminAccount
+                Url                    = $site.Url
+                Identity               = $siteGroup.Title
+                GlobalAdminAccount     = $GlobalAdminAccount
+                RawResourceInputObject = $siteGroup
             }
             try
             {
