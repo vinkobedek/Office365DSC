@@ -303,7 +303,7 @@ function Show-O365GUI
         $chckEXOSharedMailbox.Text = "Shared Mailboxes"
         $pnlExo.Controls.Add($chckEXOSharedMailbox)
 
-		$chckEXOAvailabilityConfig = New-Object System.Windows.Forms.CheckBox
+        $chckEXOAvailabilityConfig = New-Object System.Windows.Forms.CheckBox
         $chckEXOAvailabilityConfig.Top = 440
         $chckEXOAvailabilityConfig.AutoSize = $true;
         $chckEXOAvailabilityConfig.Name = "chckEXOAvailabilityConfig"
@@ -311,7 +311,7 @@ function Show-O365GUI
         $chckEXOAvailabilityConfig.Text = "Availability Config"
         $pnlExo.Controls.Add($chckEXOAvailabilityConfig)
 
-		$chckEXOEmailAddressPolicy = New-Object System.Windows.Forms.CheckBox
+        $chckEXOEmailAddressPolicy = New-Object System.Windows.Forms.CheckBox
         $chckEXOEmailAddressPolicy.Top = 460
         $chckEXOEmailAddressPolicy.AutoSize = $true;
         $chckEXOEmailAddressPolicy.Name = "chckEXOEmailAddressPolicy"
@@ -319,7 +319,7 @@ function Show-O365GUI
         $chckEXOEmailAddressPolicy.Text = "Email Address Policies"
         $pnlExo.Controls.Add($chckEXOEmailAddressPolicy)
 
-		$chckEXOOnPremisesOrganization = New-Object System.Windows.Forms.CheckBox
+        $chckEXOOnPremisesOrganization = New-Object System.Windows.Forms.CheckBox
         $chckEXOOnPremisesOrganization.Top = 480
         $chckEXOOnPremisesOrganization.AutoSize = $true;
         $chckEXOOnPremisesOrganization.Name = "chckEXOOnPremisesOrganization"
@@ -327,7 +327,7 @@ function Show-O365GUI
         $chckEXOOnPremisesOrganization.Text = "On Premises Organizations"
         $pnlExo.Controls.Add($chckEXOOnPremisesOrganization)
 
-		$chckEXOOrganizationRelationship = New-Object System.Windows.Forms.CheckBox
+        $chckEXOOrganizationRelationship = New-Object System.Windows.Forms.CheckBox
         $chckEXOOrganizationRelationship.Top = 500
         $chckEXOOrganizationRelationship.AutoSize = $true;
         $chckEXOOrganizationRelationship.Name = "chckEXOOrganizationRelationship"
@@ -335,7 +335,7 @@ function Show-O365GUI
         $chckEXOOrganizationRelationship.Text = "Organization Relationships"
         $pnlExo.Controls.Add($chckEXOOrganizationRelationship)
 
-		$chckEXOOwaMailboxPolicy = New-Object System.Windows.Forms.CheckBox
+        $chckEXOOwaMailboxPolicy = New-Object System.Windows.Forms.CheckBox
         $chckEXOOwaMailboxPolicy.Top = 520
         $chckEXOOwaMailboxPolicy.AutoSize = $true;
         $chckEXOOwaMailboxPolicy.Name = "chckEXOOwaMailboxPolicy"
@@ -343,7 +343,7 @@ function Show-O365GUI
         $chckEXOOwaMailboxPolicy.Text = "OWA Mailbox Policies"
         $pnlExo.Controls.Add($chckEXOOwaMailboxPolicy)
 
-		$chckEXOPolicyTipConfig = New-Object System.Windows.Forms.CheckBox
+        $chckEXOPolicyTipConfig = New-Object System.Windows.Forms.CheckBox
         $chckEXOPolicyTipConfig.Top = 540
         $chckEXOPolicyTipConfig.AutoSize = $true;
         $chckEXOPolicyTipConfig.Name = "chckEXOPolicyTipConfig"
@@ -351,7 +351,7 @@ function Show-O365GUI
         $chckEXOPolicyTipConfig.Text = "Policy Tip Configs"
         $pnlExo.Controls.Add($chckEXOPolicyTipConfig)
 
-		$chckEXORemoteDomain = New-Object System.Windows.Forms.CheckBox
+        $chckEXORemoteDomain = New-Object System.Windows.Forms.CheckBox
         $chckEXORemoteDomain.Top = 560
         $chckEXORemoteDomain.AutoSize = $true;
         $chckEXORemoteDomain.Name = "chckEXORemoteDomain"
@@ -359,7 +359,7 @@ function Show-O365GUI
         $chckEXORemoteDomain.Text = "Remote Domains"
         $pnlExo.Controls.Add($chckEXORemoteDomain)
 
-		$chckEXOSharingPolicy = New-Object System.Windows.Forms.CheckBox
+        $chckEXOSharingPolicy = New-Object System.Windows.Forms.CheckBox
         $chckEXOSharingPolicy.Top = 580
         $chckEXOSharingPolicy.AutoSize = $true;
         $chckEXOSharingPolicy.Name = "chckEXOSharingPolicy"
